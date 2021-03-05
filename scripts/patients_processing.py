@@ -23,6 +23,16 @@ data1.BASELINE_ALBUMIN = data1.BASELINE_ALBUMIN.fillna(data1.BASELINE_ALBUMIN.me
 data1.BASELINE_SELENIUM = data1.BASELINE_SELENIUM.fillna(data1.BASELINE_SELENIUM.mean())
 data1.BASELINE_VIT_D = data1.BASELINE_VIT_D.fillna(data1.BASELINE_VIT_D.mean())
 
+# set to datetime variable type
+data1.ENTRY_DATE = pd.to_datetime(data1.ENTRY_DATE)
+
+# set type as integer
+data1.BMI = data1.BMI.astype('int64')
+
+# distinguish ordinal data
+pd.Categorical(data1.SMOKING, ordered = True)
+pd.Categorical(data1.ALCOHOL, ordered = True)
+pd.Categorical(data1.SKIN_TYPE, ordered = True)
 data1.set_index('ID', inplace = True)
 
 # drop NaN on row 11
@@ -43,3 +53,5 @@ data2 = data2.div((data2.max(axis = 1) - data2.min(axis = 1)), axis = 0)
 # merge on index
 final_df = data1.merge(data2, left_index= True, right_index= True)
 
+# save new dataframe
+final_df.to_pickle("data/patients_processed.pkl.gz")
