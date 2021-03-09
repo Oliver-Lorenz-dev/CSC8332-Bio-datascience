@@ -10,7 +10,7 @@ seaborn.set_context("paper")
 seaborn.set_palette("deep", color_codes=True)
 
 # pairplot
-pair_plot = seaborn.pairplot(processed_data,vars=['PASI_WEEK_0','PASI_WEEK_2','PASI_WEEK_5'])
+pair_plot = seaborn.pairplot(processed_data,diag_kind="kde",vars=['PASI_WEEK_0','PASI_WEEK_2','PASI_WEEK_5'])
 
 # save plot
 pair_plot.savefig("./results/figure4.png", dpi=200)
