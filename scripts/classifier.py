@@ -20,13 +20,16 @@ tensorflow.random.set_seed(3)
 # read data
 data = pandas.read_csv('/home/c0059478/Documents/8332/data/proteins.csv.gz')
 
+# randomise data order so training data has all classes
+data_random = data.sample(frac=1)
+
 # preprocessing
-y = preprocessing.LabelBinarizer().fit_transform(data.pfam_id)
+y = preprocessing.LabelBinarizer().fit_transform(data_random.pfam_id)
 
 #convert sequences to lists of tokens
 tokenizer = keras.preprocessing.text.Tokenizer(char_level=True)
-tokenizer.fit_on_texts(data.sequence)
-x = tokenizer.texts_to_sequences(data.sequence)
+tokenizer.fit_on_texts(data_random.sequence)
+x = tokenizer.texts_to_sequences(data_random.sequence)
 
 # pad short / trim long sequences
 MAX_LENGTH = 150
