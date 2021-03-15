@@ -23,7 +23,7 @@ output.close()
 protein_data = pd.read_csv("/home/c0059478/Documents/8332/data/proteins.csv.gz")
 
 # select top 20 familes
-top = protein_data.pfam_id.value_counts()[:20].index
+top = protein_data.pfam_id.value_counts()[:6].index
 selection = protein_data.pfam_id.isin(top)
 protein_data_final = protein_data[selection]
 
