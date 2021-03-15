@@ -58,12 +58,8 @@ def build_cnn():
   ])
 
   model.compile(loss="categorical_crossentropy", optimizer="Adam", metrics=["accuracy"])
-  print(model)
   return model
 
-# build model
-# nn = build_cnn()
-# nn.fit(x, y, epochs=5, verbose=0)
 # write wrapper over classifier
 class MyClassifier(keras.wrappers.scikit_learn.KerasClassifier):
   def predict(self, x, **kwargs):
@@ -72,7 +68,7 @@ class MyClassifier(keras.wrappers.scikit_learn.KerasClassifier):
     return preprocessing.LabelBinarizer().fit(self.classes_).transform(classes)
 
 # predict scores
-nn = MyClassifier(build_cnn, epochs=5, verbose=0)
+nn = MyClassifier(build_cnn, epochs=5)
 scores = model_selection.cross_val_score(nn, x, y, scoring="f1_macro", cv=5)
 
 # print output to terminal
