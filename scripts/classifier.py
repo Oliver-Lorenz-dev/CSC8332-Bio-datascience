@@ -56,14 +56,20 @@ x = keras.preprocessing.sequence.pad_sequences(x, MAX_LENGTH, truncating="post")
 CLASSES = len(y[0])
 TOKENS = len(tokenizer.word_index) + 1
 DIMENSIONS = 8
-UNITS = 32
+if args.two:
+    UNITS = 20
+else:
+    UNITS = 32
 SIZE = 4
 if args.one:
     DROPOUT_RATE = 0
     
 else:
     DROPOUT_RATE = 0.2
-
+if args.three:
+    optimizer = 'Adadelta'
+else:
+    optimizer = 'Adam'
 # build model function
 def build_cnn():
   model = keras.Sequential([
@@ -82,7 +88,7 @@ def build_cnn():
     Dense(CLASSES, activation="softmax")
   ])
 
-  model.compile(loss="categorical_crossentropy", optimizer="Adam", metrics=["accuracy"])
+  model.compile(loss="categorical_crossentropy", optimizer= optimizer, metrics=["accuracy"])
   return model
 
 # write wrapper over classifier
