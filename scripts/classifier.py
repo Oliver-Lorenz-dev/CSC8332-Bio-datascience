@@ -104,3 +104,4 @@ scores = model_selection.cross_val_score(nn, x, y, scoring="f1_macro", cv=5)
 
 # print output to terminal
 print(scores)
+print(scores.mean())
