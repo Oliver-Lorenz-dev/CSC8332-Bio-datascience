@@ -13,9 +13,27 @@ from tensorflow.keras.layers import Dropout, Flatten, Dense
 from tensorflow.keras.wrappers.scikit_learn import KerasClassifier
 import numpy
 from sklearn import model_selection
+import argparse
+import os
+import random
 
 # set seed
-tensorflow.random.set_seed(3)
+# code for setting seed adapted from stackoverflow solution
+# https://stackoverflow.com/questions/36288235/how-to-get-stable-results-with-tensorflow-setting-random-seed
+SEED = 3
+os.environ['PYTHONHASHSEED']=str(SEED)
+os.environ['TF_CUDNN_DETERMINISTIC'] = '1' 
+random.seed(SEED)
+numpy.random.seed(SEED)
+tensorflow.random.set_seed(SEED)
+
+
+# set up command line arguments
+parser = argparse.ArgumentParser()
+parser.add_argument("--one", action= "store_true")
+parser.add_argument("--two", action= "store_true")
+parser.add_argument("--three", action= "store_true")
+args = parser.parse_args()
 
 # read data
 data = pandas.read_csv('/home/c0059478/Documents/8332/data/proteins.csv.gz')
@@ -40,7 +58,11 @@ TOKENS = len(tokenizer.word_index) + 1
 DIMENSIONS = 8
 UNITS = 32
 SIZE = 4
-DROPOUT_RATE = 0.2
+if args.one:
+    DROPOUT_RATE = 0
+    
+else:
+    DROPOUT_RATE = 0.2
 
 # build model function
 def build_cnn():
