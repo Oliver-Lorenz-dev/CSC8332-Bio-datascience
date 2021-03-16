@@ -5,7 +5,7 @@ This package is built as a part of the CSC8332: Bio data science
 CSC8332 Assessment - Oliver Lorenz
 ----------------------
 Scripts are designed to run from the following directory:
-c0059478@cs-1083:/home/c0059478/Documents/8332$
+/home/c0059478/Documents/8332$
 
 Use case
 ---------------------
