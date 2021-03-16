@@ -7,6 +7,11 @@ CSC8332 Assessment - Oliver Lorenz
 Scripts are designed to run from the following directory:
 /home/c0059478/Documents/8332$
 
+List of scripts
+---------------------
+classifier.py , figure_1.py , figure_2.py , figure_3.py , figure_4.py , 
+figure_5.py , patients_processing.py , sequence_parsing.py
+
 Use case
 ---------------------
 To run the program figure_5.py : 
