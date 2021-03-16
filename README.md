@@ -16,13 +16,13 @@ Additional arguments
 ---------------------
 The classifier.py script takes 3 optional arguments:
 
-one: type: ./scripts/plotting_graphs.py --one
+one: type: ./scripts/classifier.py --one
 This argument changes the dropout rate to zero (removes the dropout rate).
 
-two: type: ./scripts/plotting_graphs.py --two
+two: type: ./scripts/classifier.py --two
 This argument decreases the network size 
 
-three:  type: ./scripts/plotting_graphs.py --three
+three:  type: ./scripts/classifier.py --three
 This argument changes the learning rate
 
 No other scripts take any arguments from the command line.
