@@ -1,4 +1,28 @@
-#testing
+Bio data science
+========================================
+This package is built as a part of the CSC8332: Bio data science
 
-testing
-testing again
+CSC8332 Assessment - Oliver Lorenz
+----------------------
+Scripts are designed to run from the following directory:
+c0059478@cs-1083:/home/c0059478/Documents/8332$
+
+Use case
+---------------------
+To run the program figure_5.py : 
+./scripts/figure_5.py
+
+Additional arguments
+---------------------
+The classifier.py script takes 3 optional arguments:
+
+one: type: ./scripts/plotting_graphs.py --one
+This argument changes the dropout rate to zero (removes the dropout rate).
+
+two: type: ./scripts/plotting_graphs.py --two
+This argument decreases the network size 
+
+three:  type: ./scripts/plotting_graphs.py --three
+This argument changes the learning rate
+
+No other scripts take any arguments from the command line.
