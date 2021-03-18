@@ -99,7 +99,7 @@ class MyClassifier(keras.wrappers.scikit_learn.KerasClassifier):
     return preprocessing.LabelBinarizer().fit(self.classes_).transform(classes)
 
 # predict scores
-nn = MyClassifier(build_cnn, epochs=5)
+nn = MyClassifier(build_cnn, epochs=100)
 scores = model_selection.cross_val_score(nn, x, y, scoring="f1_macro", cv=5)
 
 # print output to terminal
